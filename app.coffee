@@ -1,11 +1,13 @@
 ###
-  Silkveil in CoffeeScript by Christian Weber
-
+  Silkveil in CoffeeScript by MonstersInTokyo
 ###
 
 "use strict";
 
-http = require('http')
+http = require 'http'
+url = require 'url'
+
+
 mappings =
   'chris':
     action: 'redirect'
@@ -20,6 +22,13 @@ mappings =
 
 actions =
   'download': (res, mapping) ->
+    http.get(url.parse(mapping.url), (data) ->
+      contentDisposition = if mapping.forceDownload then 'attachment' else 'inline'
+      res.writeHead data.statusCode,
+        'Content-Type': mapping.contentType
+        'Content-Disposition': "#{contentDisposition}; filename=#{mapping.Filename};"
+      data.pipe res)
+
   'error': (res, mapping) ->
     res.writeHead mapping.statusCode, {'Content-Type': 'text/html'}
     res.end mapping.statusCode + ' ' + mapping.data
@@ -38,5 +47,5 @@ http.createServer (req, res) ->
     statusCode: 404,
     data: 'file not found'
   actions[mapping.action](res, mapping)
-.listen 4000
+.listen 3000
 
