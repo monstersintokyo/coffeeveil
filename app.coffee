@@ -1,9 +1,9 @@
 ###
   Silkveil in CoffeeScript by MonstersInTokyo
 ###
-"use strict";
 
 http = require 'http'
+redirect = require('redirect').redirect 'sp-studios.com'
 actions = require './actions.js'
 mappings = require './mappings.js'
 
