@@ -1,3 +1,5 @@
+moment = require 'moment'
+
 mappings =
   'chris':
     action: 'redirect'
@@ -9,6 +11,9 @@ mappings =
     filename: 'PolarBear.png'
     contentType: 'image/png'
     forceDownload: false
+    constraints:
+      validFrom: [moment Date.UTC.apply {}, [2012, 0, 1]]
+      validBefore: [moment Date.UTC.apply {}, [2012, 11, 31, 23, 59, 59]]
   'portrait':
     action: 'download'
     url: 'file://../goethe.jpg'
