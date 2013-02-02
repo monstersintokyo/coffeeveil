@@ -11,7 +11,7 @@ constraints =
 verify = (mapping) ->
   if not mapping.constraints
     return mapping
-  for constraint in mapping.constraints
+  for constraint of mapping.constraints
     if not mapping.constraints.hasOwnProperty constraint
       continue
     if constraints[constraint].apply({}, mapping.constraints[constraint]) is false

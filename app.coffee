@@ -15,7 +15,7 @@ http.createServer (req, res) ->
     action: 'error',
     statusCode: 404,
     data: 'file not found'
-  mapping = constraints.verify mapping or
+  mapping = constraints.verify(mapping) or
     action: 'error',
     statusCode: 409,
     data: 'Conflict'
