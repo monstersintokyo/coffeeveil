@@ -21,5 +21,5 @@ http.createServer (req, res) ->
     statusCode: 409,
     data: 'Conflict'
   actions[mapping.action](res, mapping)
-.listen 3000
+.listen process.env.PORT or 3000
 
