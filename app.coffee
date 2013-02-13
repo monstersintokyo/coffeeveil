@@ -3,7 +3,7 @@
 ###
 
 http = require 'http'
-redirect = require('redirect').redirect 'sp-studios.com'
+redirect = require('./redirect').redirect 'sp-studios.com'
 
 actions = require './actions.coffee'
 mappings = require './mappings.coffee'
