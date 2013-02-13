@@ -9,3 +9,7 @@ coffee -c -o #{file}/js #{file}
 ```
 
 Run app.js with node.
+
+OR
+
+Just drink kool-aid coffee.
