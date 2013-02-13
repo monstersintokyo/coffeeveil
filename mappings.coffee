@@ -13,10 +13,10 @@ mappings =
     forceDownload: false
     constraints:
       validFrom: [moment Date.UTC.apply {}, [2012, 0, 1]]
-      validBefore: [moment Date.UTC.apply {}, [2012, 11, 31, 23, 59, 59]]
+      validBefore: [moment Date.UTC.apply {}, [2013, 11, 31, 23, 59, 59]]
   'portrait':
     action: 'download'
-    url: 'file://../goethe.jpg'
+    url: 'file://./goethe.jpg'
     fileName: 'Portrait.jpg'
     contentType: 'image/jpeg'
     forceDownload: false
