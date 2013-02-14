@@ -23,12 +23,8 @@ actions =
         data.statusCode = 200
         deliverDownload res, mapping, data
   'error': (res, mapping) ->
-    res.writeHead mapping.statusCode, {'Content-Type': 'text/html'}
-    res.end mapping.statusCode + ' ' + mapping.data
+    res.send mapping.statusCode, mapping.statusCode + ' ' + mapping.data
   'redirect': (res, mapping) ->
-    statusCode = if mapping.type is 'permanent' then 301 else 307
-    res.writeHead statusCode,
-                  'Location': mapping.url
-    res.end()
+    res.redirect (if mapping.type is 'permanent' then 301 else 307), mapping.url
 
 module.exports = actions
